@@ -1,7 +1,7 @@
-import React, { useState } from "react"
+import React from "react"
+import { Link } from "react-router-dom"
+
 import {
-    AppBar,
-    Toolbar,
     Drawer,
     Box,
     Typography,
@@ -12,24 +12,8 @@ import {
     ListItemText,
     Card,
     CardContent,
-    Grid,
-    Table,
-    TableBody,
-    TableCell,
-    TableContainer,
-    TableHead,
-    TableRow,
     Avatar,
-    Chip,
-    Button,
     IconButton,
-    Container,
-    useTheme,
-    useMediaQuery,
-    Popover,
-    MenuList,
-    MenuItem,
-    Divider,
 } from "@mui/material";
 
 import {
@@ -42,11 +26,11 @@ import {
 } from "@mui/icons-material"
 
 const navigationItems = [
-    { id: 1, label: "Dashboard", icon: DashboardIcon },
-    { id: 2, label: "Students", icon: PeopleIcon },
-    { id: 3, label: "Teachers", icon: SchoolIcon },
-    { id: 4, label: "Classes", icon: ClassIcon },
-    { id: 5, label: "Settings", icon: SettingsIcon }
+    { id: 1, label: "Dashboard", icon: DashboardIcon, to: "/dashboard" },
+    { id: 2, label: "Students", icon: PeopleIcon, to: "/students" },
+    { id: 3, label: "Teachers", icon: SchoolIcon, to: "/teachers" },
+    { id: 4, label: "Classes", icon: ClassIcon, to: "/classes" },
+    { id: 5, label: "Settings", icon: SettingsIcon, to: "/settings" }
 ]
 
 const drawer = (
@@ -101,12 +85,15 @@ const drawer = (
                             >
                                 <item.icon />
                             </ListItemIcon>
-                            <ListItemText
-                                primary={item.label}
-                                primaryTypographyProps={{
-                                    fontWeight: item.active ? 600 : 400,
-                                }}
-                            >{item.name}</ListItemText>
+                            <Link to={item.to}>
+                                <ListItemText
+                                    primary={item.label}
+                                    primaryTypographyProps={{
+                                        fontWeight: item.active ? 600 : 400,
+                                    }}
+                                    sx={{ color: '#000' }}
+                                />
+                            </Link>
                         </ListItemButton>
                     </ListItem>
                 ))}

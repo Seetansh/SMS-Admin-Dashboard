@@ -1,17 +1,20 @@
 import React, { useState } from "react"
 import { Box, Container, Toolbar, useTheme, useMediaQuery } from "@mui/material"
-
+import { Outlet } from "react-router-dom";
 import Sidebar from "../Components/Sidebar"
 import AppHeader from "../Components/Appbar"
 import SummaryCards from "../Components/SummaryCards"
 import QuickActions from "../Components/QuickActions"
 import RecentStudentsTable from "../Components/RecentStudentsTable"
+import Classes from './Classes'
+import Students from './Students'
+import Teachers from './Teachers'
 
 import {
     Dashboard as DashboardIcon,
     People as PeopleIcon,
     School as SchoolIcon,
-    Class as ClassIcon
+    Class as ClassIcon,
 } from "@mui/icons-material"
 
 const drawerWidth = 280
@@ -45,6 +48,7 @@ export default function SchoolDashboard() {
     return (
         <Box sx={{ display: "flex", minHeight: "100vh", bgcolor: "grey.50" }}>
             <Sidebar drawerWidth={drawerWidth} mobileOpen={mobileOpen} handleDrawerToggle={handleDrawerToggle} />
+
             <Box component="main" sx={{ flexGrow: 1, width: { lg: `calc(100% - ${drawerWidth}px)` } }}>
                 <AppHeader
                     drawerWidth={drawerWidth}
@@ -56,6 +60,7 @@ export default function SchoolDashboard() {
                 />
                 <Toolbar />
                 <Container maxWidth="xl" sx={{ py: 4 }}>
+                    <Outlet />
                     <SummaryCards summaryData={summaryData} />
                     <QuickActions />
                     <RecentStudentsTable students={recentStudents} />
