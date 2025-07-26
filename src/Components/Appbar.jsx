@@ -22,12 +22,12 @@ export default function Appbar({
             sx={{
                 width: { lg: `calc(100% - ${drawerWidth}px)` },
                 ml: { lg: `${drawerWidth}px` },
-                bgcolor: "white",
+                bgcolor: "#fff",
                 color: "text.primary",
                 boxShadow: "0 1px 3px rgba(0,0,0,0.1)",
                 borderBottom: "1px solid",
                 borderColor: "divider",
-                p: 0.6
+                p: 1.5
             }}
         >
             <Toolbar>

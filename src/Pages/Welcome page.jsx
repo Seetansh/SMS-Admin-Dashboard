@@ -1,30 +1,96 @@
-import React from 'react'
-import SummaryCards from '../Components/SummaryCards';
-import QuickActions from '../Components/QuickActions';
-import RecentStudentsTable from '../Components/RecentStudentsTable';
+"use client"
+import { Box, Typography, Container, Paper, useTheme, useMediaQuery } from "@mui/material"
+import SchoolIcon from "@mui/icons-material/School"
 
-const summaryData = [
-    { title: "Total Students", value: "1,234", icon: PeopleIcon, color: "#1976d2", bgColor: "#e3f2fd", change: "+12%" },
-    { title: "Total Teachers", value: "89", icon: SchoolIcon, color: "#2e7d32", bgColor: "#e8f5e8", change: "+3%" },
-    { title: "Total Classes", value: "45", icon: ClassIcon, color: "#7b1fa2", bgColor: "#f3e5f5", change: "+8%" },
-    { title: "Active Sessions", value: "28", icon: DashboardIcon, color: "#f57c00", bgColor: "#fff3e0", change: "+15%" }
-]
+export default function WelcomePage() {
+  const theme = useTheme()
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"))
 
-const recentStudents = [
-    { id: 1, name: "Alice Johnson", class: "10-A", rollNo: "001", status: "Active" },
-    { id: 2, name: "Bob Smith", class: "9-B", rollNo: "045", status: "Active" },
-    { id: 3, name: "Carol Davis", class: "11-C", rollNo: "023", status: "Inactive" },
-    { id: 4, name: "David Wilson", class: "8-A", rollNo: "067", status: "Active" },
-    { id: 5, name: "Eva Brown", class: "10-B", rollNo: "089", status: "Active" },
-    { id: 6, name: "Frank Miller", class: "9-A", rollNo: "034", status: "Active" }
-]
-
-export default function DashboardHome() {
   return (
-    <>
-      <SummaryCards summaryData={summaryData} />
-      <QuickActions />
-      <RecentStudentsTable students={recentStudents} />
-    </>
-  );
+    <Box
+      sx={{
+        minHeight: "100vh",
+        backgroundColor: "#f8f9fa",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        padding: { xs: 2, sm: 3, md: 4 },
+      }}
+    >
+      <Container maxWidth="md">
+        <Paper
+          elevation={0}
+          sx={{
+            backgroundColor: "transparent",
+            textAlign: "center",
+            padding: { xs: 4, sm: 6, md: 8 },
+          }}
+        >
+          {/* Large Icon */}
+          <Box
+            sx={{
+              marginBottom: { xs: 3, sm: 4, md: 5 },
+            }}
+          >
+            <SchoolIcon
+              sx={{
+                fontSize: { xs: 80, sm: 100, md: 120 },
+                color: theme.palette.primary.main,
+                filter: "drop-shadow(0 4px 8px rgba(0,0,0,0.1))",
+              }}
+            />
+          </Box>
+
+          {/* Main Heading */}
+          <Typography
+            variant={isMobile ? "h4" : "h2"}
+            component="h1"
+            sx={{
+              fontWeight: 700,
+              color: theme.palette.text.primary,
+              marginBottom: { xs: 2, sm: 3 },
+              lineHeight: 1.2,
+              letterSpacing: "-0.02em",
+            }}
+          >
+            Welcome to the School Management System
+          </Typography>
+
+          {/* Subtext */}
+          <Typography
+            variant={isMobile ? "body1" : "h6"}
+            component="p"
+            sx={{
+              color: theme.palette.text.secondary,
+              fontWeight: 400,
+              maxWidth: "600px",
+              margin: "0 auto",
+              lineHeight: 1.6,
+            }}
+          >
+            Click on 'Dashboard' in the sidebar to get started
+          </Typography>
+
+          {/* Optional decorative element */}
+          <Box
+            sx={{
+              marginTop: { xs: 4, sm: 5, md: 6 },
+              display: "flex",
+              justifyContent: "center",
+            }}
+          >
+            <Box
+              sx={{
+                width: { xs: 60, sm: 80, md: 100 },
+                height: 4,
+                backgroundColor: theme.palette.primary.main,
+                borderRadius: 2,
+                opacity: 0.3,
+              }}
+            />
+          </Box>
+        </Paper>
+      </Container>
+    </Box>
+  )
 }

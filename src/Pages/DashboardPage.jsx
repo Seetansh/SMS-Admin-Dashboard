@@ -1,7 +1,7 @@
-// Main content will render here
+// dashboard content
 
 import React, { useState } from "react"
-import { Box, Container, Toolbar, useTheme, useMediaQuery } from "@mui/material"
+import { Box, Container, Toolbar, useTheme, useMediaQuery, requirePropFactory } from "@mui/material"
 import { Outlet } from "react-router-dom";
 import Sidebar from "../Components/Sidebar"
 import AppHeader from "../Components/Appbar"
@@ -19,8 +19,6 @@ import {
     Class as ClassIcon,
 } from "@mui/icons-material"
 
-const drawerWidth = 280
-
 const summaryData = [
     { title: "Total Students", value: "1,234", icon: PeopleIcon, color: "#1976d2", bgColor: "#e3f2fd", change: "+12%" },
     { title: "Total Teachers", value: "89", icon: SchoolIcon, color: "#2e7d32", bgColor: "#e8f5e8", change: "+3%" },
@@ -37,34 +35,13 @@ const recentStudents = [
     { id: 6, name: "Frank Miller", class: "9-A", rollNo: "034", status: "Active" }
 ]
 
-export default function SchoolDashboard() {
-    const [mobileOpen, setMobileOpen] = useState(false)
-    const [profileAnchorEl, setProfileAnchorEl] = useState(null)
-    const theme = useTheme()
-    const isMobile = useMediaQuery(theme.breakpoints.down("lg"))
 
-    const handleDrawerToggle = () => setMobileOpen(!mobileOpen)
-    const handleProfileMouseEnter = (event) => setProfileAnchorEl(event.currentTarget)
-    const handleProfileMouseLeave = () => setProfileAnchorEl(null)
-
+export default function Dashboard() {
     return (
-        <Box sx={{ display: "flex", minHeight: "100vh", bgcolor: "grey.50" }}>
-            <Sidebar drawerWidth={drawerWidth} mobileOpen={mobileOpen} handleDrawerToggle={handleDrawerToggle} />
-
-            <Box component="main" sx={{ flexGrow: 1, width: { lg: `calc(100% - ${drawerWidth}px)` } }}>
-                <AppHeader
-                    drawerWidth={drawerWidth}
-                    handleDrawerToggle={handleDrawerToggle}
-                    profileAnchorEl={profileAnchorEl}
-                    setProfileAnchorEl={setProfileAnchorEl}
-                    handleProfileMouseEnter={handleProfileMouseEnter}
-                    handleProfileMouseLeave={handleProfileMouseLeave}
-                />
-                <Toolbar />
-                <Container maxWidth="xl" sx={{ py: 4 }}>
-                    <Outlet />
-                </Container>
-            </Box>
-        </Box>
+        <Container maxWidth="xl" sx={{ py: 4 }}>
+            <SummaryCards summaryData={summaryData} />
+            <QuickActions />
+            <RecentStudentsTable students={recentStudents} />
+        </Container>
     )
 }

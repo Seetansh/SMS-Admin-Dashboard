@@ -6,4 +6,11 @@
 
 a {
   text-decoration: none;
+  color: black;
+}
+
+#title {
+  color: #fff;
+  font-size: 30px;
+  font-weight: 900;
 }

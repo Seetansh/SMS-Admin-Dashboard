@@ -30,7 +30,8 @@ const navigationItems = [
     { id: 2, label: "Students", icon: PeopleIcon, to: "/students" },
     { id: 3, label: "Teachers", icon: SchoolIcon, to: "/teachers" },
     { id: 4, label: "Classes", icon: ClassIcon, to: "/classes" },
-    { id: 5, label: "Settings", icon: SettingsIcon, to: "/settings" }
+    { id: 5, label: "Settings", icon: SettingsIcon, to: "/settings" },
+
 ]
 
 const drawer = (
@@ -56,7 +57,7 @@ const drawer = (
                     <SchoolIcon />
                 </Avatar>
                 <Typography variant="h5" fontWeight="bold">
-                    SchoolMS
+                    <Link to='/' id='title'>SchoolMS</Link>
                 </Typography>
             </Box>
         </Box>
