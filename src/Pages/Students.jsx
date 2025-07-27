@@ -248,67 +248,78 @@ export default function StudentManagement() {
                 </Box>
 
                 {/* Summary Cards */}
-                <Grid container spacing={3} sx={{ mb: 3 }}>
-                    <Grid item xs={12} md={4}>
-                        <Card sx={{ borderLeft: 4, borderColor: "primary.main" }}>
-                            <CardContent>
-                                <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-                                    <Box>
-                                        <Typography variant="body2" color="text.secondary" sx={{ fontWeight: "medium" }}>
-                                            Total Students
-                                        </Typography>
-                                        <Typography variant="h4" sx={{ color: "primary.main", fontWeight: "bold" }}>
-                                            {totalStudents}
-                                        </Typography>
-                                    </Box>
-                                    <People sx={{ fontSize: 32, color: "primary.main" }} />
+                <Box
+                    sx={{
+                        display: "flex",
+                        justifyContent: "space-around",
+                        alignItems: "center",
+                        flexWrap: "wrap",
+                        gap: 3,
+                        mb: 3,
+                    }}
+                >
+                    <Card sx={{ borderLeft: 4, borderColor: "primary.main", minWidth: 280, flex: "1 1 280px" }}>
+                        <CardContent>
+                            <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+                                <Box>
+                                    <Typography variant="body2" color="text.secondary" sx={{ fontWeight: "medium" }}>
+                                        Total Students
+                                    </Typography>
+                                    <Typography variant="h4" sx={{ color: "primary.main", fontWeight: "bold" }}>
+                                        {totalStudents}
+                                    </Typography>
                                 </Box>
-                            </CardContent>
-                        </Card>
-                    </Grid>
+                                <People sx={{ fontSize: 32, color: "primary.main" }} />
+                            </Box>
+                        </CardContent>
+                    </Card>
 
-                    <Grid item xs={12} md={4}>
-                        <Card sx={{ borderLeft: 4, borderColor: "success.main" }}>
-                            <CardContent>
-                                <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-                                    <Box>
-                                        <Typography variant="body2" color="text.secondary" sx={{ fontWeight: "medium" }}>
-                                            Active Students
-                                        </Typography>
-                                        <Typography variant="h4" sx={{ color: "success.main", fontWeight: "bold" }}>
-                                            {activeStudents}
-                                        </Typography>
-                                    </Box>
-                                    <PersonAdd sx={{ fontSize: 32, color: "success.main" }} />
+                    <Card sx={{ borderLeft: 4, borderColor: "success.main", minWidth: 280, flex: "1 1 280px" }}>
+                        <CardContent>
+                            <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+                                <Box>
+                                    <Typography variant="body2" color="text.secondary" sx={{ fontWeight: "medium" }}>
+                                        Active Students
+                                    </Typography>
+                                    <Typography variant="h4" sx={{ color: "success.main", fontWeight: "bold" }}>
+                                        {activeStudents}
+                                    </Typography>
                                 </Box>
-                            </CardContent>
-                        </Card>
-                    </Grid>
+                                <PersonAdd sx={{ fontSize: 32, color: "success.main" }} />
+                            </Box>
+                        </CardContent>
+                    </Card>
 
-                    <Grid item xs={12} md={4}>
-                        <Card sx={{ borderLeft: 4, borderColor: "grey.500" }}>
-                            <CardContent>
-                                <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-                                    <Box>
-                                        <Typography variant="body2" color="text.secondary" sx={{ fontWeight: "medium" }}>
-                                            Inactive Students
-                                        </Typography>
-                                        <Typography variant="h4" sx={{ color: "grey.700", fontWeight: "bold" }}>
-                                            {inactiveStudents}
-                                        </Typography>
-                                    </Box>
-                                    <PersonOff sx={{ fontSize: 32, color: "grey.500" }} />
+                    <Card sx={{ borderLeft: 4, borderColor: "grey.500", minWidth: 280, flex: "1 1 280px" }}>
+                        <CardContent>
+                            <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+                                <Box>
+                                    <Typography variant="body2" color="text.secondary" sx={{ fontWeight: "medium" }}>
+                                        Inactive Students
+                                    </Typography>
+                                    <Typography variant="h4" sx={{ color: "grey.700", fontWeight: "bold" }}>
+                                        {inactiveStudents}
+                                    </Typography>
                                 </Box>
-                            </CardContent>
-                        </Card>
-                    </Grid>
-                </Grid>
+                                <PersonOff sx={{ fontSize: 32, color: "grey.500" }} />
+                            </Box>
+                        </CardContent>
+                    </Card>
+                </Box>
 
                 {/* Search and Filters */}
                 <Card sx={{ mb: 3 }}>
                     <CardContent>
-                        <Grid container spacing={2} alignItems="center">
-                            <Grid item xs={12} sm={8} md={6}>
+                        <Box
+                            sx={{
+                                display: "flex",
+                                flexWrap: "wrap",
+                                gap: 2,
+                                alignItems: "center",
+                                justifyContent: "space-between",
+                            }}
+                        >
+                            <Box sx={{ flex: "1 1 300px", minWidth: 300 }}>
                                 <TextField
                                     fullWidth
                                     placeholder="Search by name or roll number..."
@@ -322,9 +333,17 @@ export default function StudentManagement() {
                                         ),
                                     }}
                                 />
-                            </Grid>
-                            <Grid item xs={6} sm={4} md={1.5}>
-                                <FormControl fullWidth sx={{ minWidth: 100 }}>
+                            </Box>
+
+                            <Box
+                                sx={{
+                                    display: "flex",
+                                    gap: 2,
+                                    flexWrap: "wrap",
+                                    alignItems: "center",
+                                }}
+                            >
+                                <FormControl sx={{ minWidth: 100 }}>
                                     <InputLabel>Class</InputLabel>
                                     <Select
                                         value={classFilter}
@@ -332,16 +351,14 @@ export default function StudentManagement() {
                                         label="Class"
                                         displayEmpty
                                     >
-
                                         <MenuItem value="9">Class 9</MenuItem>
                                         <MenuItem value="10">Class 10</MenuItem>
                                         <MenuItem value="11">Class 11</MenuItem>
                                         <MenuItem value="12">Class 12</MenuItem>
                                     </Select>
                                 </FormControl>
-                            </Grid>
-                            <Grid item xs={6} sm={4} md={1.5}>
-                                <FormControl fullWidth sx={{ minWidth: 100 }}>
+
+                                <FormControl sx={{ minWidth: 100 }}>
                                     <InputLabel>Section</InputLabel>
                                     <Select
                                         value={sectionFilter}
@@ -349,15 +366,13 @@ export default function StudentManagement() {
                                         label="Section"
                                         displayEmpty
                                     >
-
                                         <MenuItem value="A">Section A</MenuItem>
                                         <MenuItem value="B">Section B</MenuItem>
                                         <MenuItem value="C">Section C</MenuItem>
                                     </Select>
                                 </FormControl>
-                            </Grid>
-                            <Grid item xs={6} sm={4} md={1.5}>
-                                <FormControl fullWidth sx={{ minWidth: 100 }}>
+
+                                <FormControl sx={{ minWidth: 100 }}>
                                     <InputLabel>Status</InputLabel>
                                     <Select
                                         value={statusFilter}
@@ -369,8 +384,7 @@ export default function StudentManagement() {
                                         <MenuItem value="Inactive">Inactive</MenuItem>
                                     </Select>
                                 </FormControl>
-                            </Grid>
-                            <Grid item xs={6} sm={4} md={1.5}>
+
                                 {(searchTerm || classFilter || sectionFilter || statusFilter) && (
                                     <Button
                                         variant="outlined"
@@ -382,8 +396,8 @@ export default function StudentManagement() {
                                         Clear
                                     </Button>
                                 )}
-                            </Grid>
-                        </Grid>
+                            </Box>
+                        </Box>
                     </CardContent>
                 </Card>
 
@@ -450,105 +464,123 @@ export default function StudentManagement() {
                 <Dialog open={isAddModalOpen} onClose={() => setIsAddModalOpen(false)} maxWidth="md" fullWidth>
                     <DialogTitle>Add New Student</DialogTitle>
                     <DialogContent>
-                        <Grid container spacing={2} sx={{ mt: 1 }}>
-                            <Grid item xs={12} sm={6}>
-                                <TextField
-                                    fullWidth
-                                    label="Name"
-                                    value={formData.name}
-                                    onChange={(e) => handleFormChange("name", e.target.value)}
-                                    placeholder="Enter student name"
-                                />
-                            </Grid>
-                            <Grid item xs={12} sm={6}>
-                                <TextField
-                                    fullWidth
-                                    label="Roll Number"
-                                    value={formData.rollNumber}
-                                    onChange={(e) => handleFormChange("rollNumber", e.target.value)}
-                                    placeholder="Enter roll number"
-                                />
-                            </Grid>
-                            <Grid item xs={12} sm={6}>
-                                <FormControl fullWidth required sx={{ minWidth: 100 }}>
-                                    <InputLabel>Class *</InputLabel>
-                                    <Select
-                                        value={formData.class}
-                                        onChange={(e) => handleFormChange("class", e.target.value)}
-                                        label="Class *"
-                                        error={!formData.class}
-                                    >
-                                        <MenuItem value="9">Class 9</MenuItem>
-                                        <MenuItem value="10">Class 10</MenuItem>
-                                        <MenuItem value="11">Class 11</MenuItem>
-                                        <MenuItem value="12">Class 12</MenuItem>
-                                    </Select>
-                                </FormControl>
-                            </Grid>
-                            <Grid item xs={12} sm={6}>
-                                <FormControl fullWidth required sx={{ minWidth: 100 }}>
-                                    <InputLabel>Section *</InputLabel>
-                                    <Select
-                                        value={formData.section}
-                                        onChange={(e) => handleFormChange("section", e.target.value)}
-                                        label="Section *"
-                                        error={!formData.section}
-                                    >
-                                        <MenuItem value="A">Section A</MenuItem>
-                                        <MenuItem value="B">Section B</MenuItem>
-                                        <MenuItem value="C">Section C</MenuItem>
-                                    </Select>
-                                </FormControl>
-                            </Grid>
-                            <Grid item xs={12} sm={6}>
-                                <TextField
-                                    fullWidth
-                                    label="Email"
-                                    type="email"
-                                    value={formData.email}
-                                    onChange={(e) => handleFormChange("email", e.target.value)}
-                                    placeholder="Enter email address"
-                                />
-                            </Grid>
-                            <Grid item xs={12} sm={6}>
-                                <TextField
-                                    fullWidth
-                                    label="Parent Contact"
-                                    value={formData.parentContact}
-                                    onChange={(e) => handleFormChange("parentContact", e.target.value)}
-                                    placeholder="Enter parent contact number"
-                                />
-                            </Grid>
-                            <Grid item xs={12} sm={6}>
-                                <TextField
-                                    fullWidth
-                                    label="Date of Birth"
-                                    type="date"
-                                    value={formData.dateOfBirth}
-                                    onChange={(e) => handleFormChange("dateOfBirth", e.target.value)}
-                                    InputLabelProps={{ shrink: true }}
-                                />
-                            </Grid>
-                            <Grid item xs={12} sm={6}>
-                                <TextField
-                                    fullWidth
-                                    label="Admission Date"
-                                    type="date"
-                                    value={formData.admissionDate}
-                                    onChange={(e) => handleFormChange("admissionDate", e.target.value)}
-                                    InputLabelProps={{ shrink: true }}
-                                />
-                            </Grid>
-                            <Grid item xs={12}>
-                                <TextField
-                                    fullWidth
-                                    label="Address"
-                                    value={formData.address}
-                                    onChange={(e) => handleFormChange("address", e.target.value)}
-                                    placeholder="Enter full address"
-                                />
-                            </Grid>
-                            <Grid item xs={12} sm={6}>
+                        <Box
+                            sx={{
+                                display: "flex",
+                                flexDirection: "column",
+                                gap: 2,
+                                mt: 1,
+                            }}
+                        >
+                            <Box sx={{ display: "flex", gap: 2, flexWrap: "wrap" }}>
+                                <Box sx={{ flex: "1 1 250px" }}>
+                                    <TextField
+                                        fullWidth
+                                        label="Name"
+                                        value={formData.name}
+                                        onChange={(e) => handleFormChange("name", e.target.value)}
+                                        placeholder="Enter student name"
+                                    />
+                                </Box>
+                                <Box sx={{ flex: "1 1 250px" }}>
+                                    <TextField
+                                        fullWidth
+                                        label="Roll Number"
+                                        value={formData.rollNumber}
+                                        onChange={(e) => handleFormChange("rollNumber", e.target.value)}
+                                        placeholder="Enter roll number"
+                                    />
+                                </Box>
+                            </Box>
+
+                            <Box sx={{ display: "flex", gap: 2, flexWrap: "wrap" }}>
+                                <Box sx={{ flex: "1 1 250px" }}>
+                                    <FormControl fullWidth required sx={{ minWidth: 100 }}>
+                                        <InputLabel>Class *</InputLabel>
+                                        <Select
+                                            value={formData.class}
+                                            onChange={(e) => handleFormChange("class", e.target.value)}
+                                            label="Class *"
+                                            error={!formData.class}
+                                        >
+                                            <MenuItem value="9">Class 9</MenuItem>
+                                            <MenuItem value="10">Class 10</MenuItem>
+                                            <MenuItem value="11">Class 11</MenuItem>
+                                            <MenuItem value="12">Class 12</MenuItem>
+                                        </Select>
+                                    </FormControl>
+                                </Box>
+                                <Box sx={{ flex: "1 1 250px" }}>
+                                    <FormControl fullWidth required sx={{ minWidth: 100 }}>
+                                        <InputLabel>Section *</InputLabel>
+                                        <Select
+                                            value={formData.section}
+                                            onChange={(e) => handleFormChange("section", e.target.value)}
+                                            label="Section *"
+                                            error={!formData.section}
+                                        >
+                                            <MenuItem value="A">Section A</MenuItem>
+                                            <MenuItem value="B">Section B</MenuItem>
+                                            <MenuItem value="C">Section C</MenuItem>
+                                        </Select>
+                                    </FormControl>
+                                </Box>
+                            </Box>
+
+                            <Box sx={{ display: "flex", gap: 2, flexWrap: "wrap" }}>
+                                <Box sx={{ flex: "1 1 250px" }}>
+                                    <TextField
+                                        fullWidth
+                                        label="Email"
+                                        type="email"
+                                        value={formData.email}
+                                        onChange={(e) => handleFormChange("email", e.target.value)}
+                                        placeholder="Enter email address"
+                                    />
+                                </Box>
+                                <Box sx={{ flex: "1 1 250px" }}>
+                                    <TextField
+                                        fullWidth
+                                        label="Parent Contact"
+                                        value={formData.parentContact}
+                                        onChange={(e) => handleFormChange("parentContact", e.target.value)}
+                                        placeholder="Enter parent contact number"
+                                    />
+                                </Box>
+                            </Box>
+
+                            <Box sx={{ display: "flex", gap: 2, flexWrap: "wrap" }}>
+                                <Box sx={{ flex: "1 1 250px" }}>
+                                    <TextField
+                                        fullWidth
+                                        label="Date of Birth"
+                                        type="date"
+                                        value={formData.dateOfBirth}
+                                        onChange={(e) => handleFormChange("dateOfBirth", e.target.value)}
+                                        InputLabelProps={{ shrink: true }}
+                                    />
+                                </Box>
+                                <Box sx={{ flex: "1 1 250px" }}>
+                                    <TextField
+                                        fullWidth
+                                        label="Admission Date"
+                                        type="date"
+                                        value={formData.admissionDate}
+                                        onChange={(e) => handleFormChange("admissionDate", e.target.value)}
+                                        InputLabelProps={{ shrink: true }}
+                                    />
+                                </Box>
+                            </Box>
+
+                            <TextField
+                                fullWidth
+                                label="Address"
+                                value={formData.address}
+                                onChange={(e) => handleFormChange("address", e.target.value)}
+                                placeholder="Enter full address"
+                            />
+
+                            <Box sx={{ flex: "1 1 250px", maxWidth: "50%" }}>
                                 <FormControl fullWidth required sx={{ minWidth: 100 }}>
                                     <InputLabel>Status *</InputLabel>
                                     <Select
@@ -560,8 +592,8 @@ export default function StudentManagement() {
                                         <MenuItem value="Inactive">Inactive</MenuItem>
                                     </Select>
                                 </FormControl>
-                            </Grid>
-                        </Grid>
+                            </Box>
+                        </Box>
                     </DialogContent>
                     <DialogActions>
                         <Button onClick={() => setIsAddModalOpen(false)}>Cancel</Button>
@@ -575,105 +607,123 @@ export default function StudentManagement() {
                 <Dialog open={isEditModalOpen} onClose={() => setIsEditModalOpen(false)} maxWidth="md" fullWidth>
                     <DialogTitle>Edit Student</DialogTitle>
                     <DialogContent>
-                        <Grid container spacing={2} sx={{ mt: 1 }}>
-                            <Grid item xs={12} sm={6}>
-                                <TextField
-                                    fullWidth
-                                    label="Name"
-                                    value={formData.name}
-                                    onChange={(e) => handleFormChange("name", e.target.value)}
-                                    placeholder="Enter student name"
-                                />
-                            </Grid>
-                            <Grid item xs={12} sm={6}>
-                                <TextField
-                                    fullWidth
-                                    label="Roll Number"
-                                    value={formData.rollNumber}
-                                    onChange={(e) => handleFormChange("rollNumber", e.target.value)}
-                                    placeholder="Enter roll number"
-                                />
-                            </Grid>
-                            <Grid item xs={12} sm={6}>
-                                <FormControl fullWidth required sx={{ minWidth: 100 }}>
-                                    <InputLabel>Class *</InputLabel>
-                                    <Select
-                                        value={formData.class}
-                                        onChange={(e) => handleFormChange("class", e.target.value)}
-                                        label="Class *"
-                                        error={!formData.class}
-                                    >
-                                        <MenuItem value="9">Class 9</MenuItem>
-                                        <MenuItem value="10">Class 10</MenuItem>
-                                        <MenuItem value="11">Class 11</MenuItem>
-                                        <MenuItem value="12">Class 12</MenuItem>
-                                    </Select>
-                                </FormControl>
-                            </Grid>
-                            <Grid item xs={12} sm={6}>
-                                <FormControl fullWidth required sx={{ minWidth: 100 }}>
-                                    <InputLabel>Section *</InputLabel>
-                                    <Select
-                                        value={formData.section}
-                                        onChange={(e) => handleFormChange("section", e.target.value)}
-                                        label="Section *"
-                                        error={!formData.section}
-                                    >
-                                        <MenuItem value="A">Section A</MenuItem>
-                                        <MenuItem value="B">Section B</MenuItem>
-                                        <MenuItem value="C">Section C</MenuItem>
-                                    </Select>
-                                </FormControl>
-                            </Grid>
-                            <Grid item xs={12} sm={6}>
-                                <TextField
-                                    fullWidth
-                                    label="Email"
-                                    type="email"
-                                    value={formData.email}
-                                    onChange={(e) => handleFormChange("email", e.target.value)}
-                                    placeholder="Enter email address"
-                                />
-                            </Grid>
-                            <Grid item xs={12} sm={6}>
-                                <TextField
-                                    fullWidth
-                                    label="Parent Contact"
-                                    value={formData.parentContact}
-                                    onChange={(e) => handleFormChange("parentContact", e.target.value)}
-                                    placeholder="Enter parent contact number"
-                                />
-                            </Grid>
-                            <Grid item xs={12} sm={6}>
-                                <TextField
-                                    fullWidth
-                                    label="Date of Birth"
-                                    type="date"
-                                    value={formData.dateOfBirth}
-                                    onChange={(e) => handleFormChange("dateOfBirth", e.target.value)}
-                                    InputLabelProps={{ shrink: true }}
-                                />
-                            </Grid>
-                            <Grid item xs={12} sm={6}>
-                                <TextField
-                                    fullWidth
-                                    label="Admission Date"
-                                    type="date"
-                                    value={formData.admissionDate}
-                                    onChange={(e) => handleFormChange("admissionDate", e.target.value)}
-                                    InputLabelProps={{ shrink: true }}
-                                />
-                            </Grid>
-                            <Grid item xs={12}>
-                                <TextField
-                                    fullWidth
-                                    label="Address"
-                                    value={formData.address}
-                                    onChange={(e) => handleFormChange("address", e.target.value)}
-                                    placeholder="Enter full address"
-                                />
-                            </Grid>
-                            <Grid item xs={12} sm={6}>
+                        <Box
+                            sx={{
+                                display: "flex",
+                                flexDirection: "column",
+                                gap: 2,
+                                mt: 1,
+                            }}
+                        >
+                            <Box sx={{ display: "flex", gap: 2, flexWrap: "wrap" }}>
+                                <Box sx={{ flex: "1 1 250px" }}>
+                                    <TextField
+                                        fullWidth
+                                        label="Name"
+                                        value={formData.name}
+                                        onChange={(e) => handleFormChange("name", e.target.value)}
+                                        placeholder="Enter student name"
+                                    />
+                                </Box>
+                                <Box sx={{ flex: "1 1 250px" }}>
+                                    <TextField
+                                        fullWidth
+                                        label="Roll Number"
+                                        value={formData.rollNumber}
+                                        onChange={(e) => handleFormChange("rollNumber", e.target.value)}
+                                        placeholder="Enter roll number"
+                                    />
+                                </Box>
+                            </Box>
+
+                            <Box sx={{ display: "flex", gap: 2, flexWrap: "wrap" }}>
+                                <Box sx={{ flex: "1 1 250px" }}>
+                                    <FormControl fullWidth required sx={{ minWidth: 100 }}>
+                                        <InputLabel>Class *</InputLabel>
+                                        <Select
+                                            value={formData.class}
+                                            onChange={(e) => handleFormChange("class", e.target.value)}
+                                            label="Class *"
+                                            error={!formData.class}
+                                        >
+                                            <MenuItem value="9">Class 9</MenuItem>
+                                            <MenuItem value="10">Class 10</MenuItem>
+                                            <MenuItem value="11">Class 11</MenuItem>
+                                            <MenuItem value="12">Class 12</MenuItem>
+                                        </Select>
+                                    </FormControl>
+                                </Box>
+                                <Box sx={{ flex: "1 1 250px" }}>
+                                    <FormControl fullWidth required sx={{ minWidth: 100 }}>
+                                        <InputLabel>Section *</InputLabel>
+                                        <Select
+                                            value={formData.section}
+                                            onChange={(e) => handleFormChange("section", e.target.value)}
+                                            label="Section *"
+                                            error={!formData.section}
+                                        >
+                                            <MenuItem value="A">Section A</MenuItem>
+                                            <MenuItem value="B">Section B</MenuItem>
+                                            <MenuItem value="C">Section C</MenuItem>
+                                        </Select>
+                                    </FormControl>
+                                </Box>
+                            </Box>
+
+                            <Box sx={{ display: "flex", gap: 2, flexWrap: "wrap" }}>
+                                <Box sx={{ flex: "1 1 250px" }}>
+                                    <TextField
+                                        fullWidth
+                                        label="Email"
+                                        type="email"
+                                        value={formData.email}
+                                        onChange={(e) => handleFormChange("email", e.target.value)}
+                                        placeholder="Enter email address"
+                                    />
+                                </Box>
+                                <Box sx={{ flex: "1 1 250px" }}>
+                                    <TextField
+                                        fullWidth
+                                        label="Parent Contact"
+                                        value={formData.parentContact}
+                                        onChange={(e) => handleFormChange("parentContact", e.target.value)}
+                                        placeholder="Enter parent contact number"
+                                    />
+                                </Box>
+                            </Box>
+
+                            <Box sx={{ display: "flex", gap: 2, flexWrap: "wrap" }}>
+                                <Box sx={{ flex: "1 1 250px" }}>
+                                    <TextField
+                                        fullWidth
+                                        label="Date of Birth"
+                                        type="date"
+                                        value={formData.dateOfBirth}
+                                        onChange={(e) => handleFormChange("dateOfBirth", e.target.value)}
+                                        InputLabelProps={{ shrink: true }}
+                                    />
+                                </Box>
+                                <Box sx={{ flex: "1 1 250px" }}>
+                                    <TextField
+                                        fullWidth
+                                        label="Admission Date"
+                                        type="date"
+                                        value={formData.admissionDate}
+                                        onChange={(e) => handleFormChange("admissionDate", e.target.value)}
+                                        InputLabelProps={{ shrink: true }}
+                                    />
+                                </Box>
+                            </Box>
+
+                            <TextField
+                                fullWidth
+                                label="Address"
+                                value={formData.address}
+                                onChange={(e) => handleFormChange("address", e.target.value)}
+                                placeholder="Enter full address"
+                            />
+
+                            <Box sx={{ flex: "1 1 250px", maxWidth: "50%" }}>
                                 <FormControl fullWidth required sx={{ minWidth: 100 }}>
                                     <InputLabel>Status *</InputLabel>
                                     <Select
@@ -685,8 +735,8 @@ export default function StudentManagement() {
                                         <MenuItem value="Inactive">Inactive</MenuItem>
                                     </Select>
                                 </FormControl>
-                            </Grid>
-                        </Grid>
+                            </Box>
+                        </Box>
                     </DialogContent>
                     <DialogActions>
                         <Button onClick={() => setIsEditModalOpen(false)}>Cancel</Button>

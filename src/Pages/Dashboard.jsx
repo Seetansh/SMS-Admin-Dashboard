@@ -8,9 +8,8 @@ import AppHeader from "../Components/Appbar"
 import SummaryCards from "../Components/SummaryCards"
 import QuickActions from "../Components/QuickActions"
 import RecentStudentsTable from "../Components/RecentStudentsTable"
-import Classes from './Classes'
 import Students from './Students'
-import Teachers from './Teachers'
+
 
 import {
     Dashboard as DashboardIcon,

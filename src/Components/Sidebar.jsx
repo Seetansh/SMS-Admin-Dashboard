@@ -30,6 +30,7 @@ import {
 } from "@mui/icons-material"
 import { LuFileSpreadsheet } from "react-icons/lu";
 import { MdAssignment } from "react-icons/md"
+import { FaUserCheck } from "react-icons/fa";
 
 // const navigationItems = [
 //     { id: 1, label: "Dashboard", icon: DashboardIcon, to: "/dashboard" },
@@ -41,14 +42,15 @@ import { MdAssignment } from "react-icons/md"
 // ]
 
 const navigationItems = [
-    { id: 1, label: 'Students', icon: PeopleIcon },
-    { id: 2, label: 'Fees', icon: CurrencyRupeeIcon },
-    { id: 3, label: 'Documents', icon: FolderIcon },
-    { id: 4, label: 'Time Table', icon: ScheduleIcon },
-    { id: 5, label: 'Notice', icon: WarningIcon },
-    { id: 6, label: 'Results', icon: LuFileSpreadsheet },
-    { id: 7, label: 'Assignments', icon: MdAssignment },
-    { id: 8, label: "Settings", icon: SettingsIcon },
+    { id: 1, label: 'Students', icon: PeopleIcon, to: '/students' },
+    { id: 2, label: 'Attendance', icon: FaUserCheck, to: '/attendance' },
+    { id: 3, label: 'Fees', icon: CurrencyRupeeIcon, to: '/fees' },
+    { id: 4, label: 'Documents', icon: FolderIcon, to: '/documents' },
+    { id: 5, label: 'Time Table', icon: ScheduleIcon, to: '/time-table' },
+    { id: 6, label: 'Notice', icon: WarningIcon, to: '/notice' },
+    { id: 7, label: 'Results', icon: LuFileSpreadsheet, to: '/results' },
+    { id: 8, label: 'Assignments', icon: MdAssignment, to: '/assignments' },
+    { id: 9, label: "Settings", icon: SettingsIcon, to: '/settings' },
 
 ]
 
@@ -85,26 +87,26 @@ const drawer = (
             <List>
                 {navigationItems.map((item) => (
                     <ListItem key={item.id} disablePadding sx={{ mb: 1 }}>
-                        <ListItemButton
-                            sx={{
-                                borderRadius: 2,
-                                backgroundColor: item.active ? "primary.main" : "transparent",
-                                color: item.active ? "white" : "text.primary",
-                                "&:hover": {
-                                    backgroundColor: item.active ? "primary.dark" : "action.hover",
-                                },
-                                transition: "all 0.2s ease-in-out",
-                            }}
-                        >
-                            <ListItemIcon
+                        <Link to={item.to}>
+                            <ListItemButton
                                 sx={{
-                                    color: item.active ? "white" : "text.secondary",
-                                    minWidth: 40,
+                                    borderRadius: 2,
+                                    backgroundColor: item.active ? "primary.main" : "transparent",
+                                    color: item.active ? "white" : "text.primary",
+                                    "&:hover": {
+                                        backgroundColor: item.active ? "primary.dark" : "action.hover",
+                                    },
+                                    transition: "all 0.2s ease-in-out",
                                 }}
                             >
-                                <item.icon />
-                            </ListItemIcon>
-                            <Link to={item.to}>
+                                <ListItemIcon
+                                    sx={{
+                                        color: item.active ? "white" : "text.secondary",
+                                        minWidth: 40,
+                                    }}
+                                >
+                                    <item.icon />
+                                </ListItemIcon>
                                 <ListItemText
                                     primary={item.label}
                                     primaryTypographyProps={{
@@ -112,8 +114,8 @@ const drawer = (
                                     }}
                                     sx={{ color: '#000' }}
                                 />
-                            </Link>
-                        </ListItemButton>
+                            </ListItemButton>
+                        </Link>
                     </ListItem>
                 ))}
             </List>
