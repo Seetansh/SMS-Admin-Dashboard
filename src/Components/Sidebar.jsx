@@ -22,15 +22,33 @@ import {
     School as SchoolIcon,
     Class as ClassIcon,
     Close as CloseIcon,
-    Settings as SettingsIcon
+    Settings as SettingsIcon,
+    CurrencyRupee as CurrencyRupeeIcon,
+    Folder as FolderIcon,
+    Schedule as ScheduleIcon,
+    Warning as WarningIcon
 } from "@mui/icons-material"
+import { LuFileSpreadsheet } from "react-icons/lu";
+import { MdAssignment } from "react-icons/md"
+
+// const navigationItems = [
+//     { id: 1, label: "Dashboard", icon: DashboardIcon, to: "/dashboard" },
+//     { id: 2, label: "Students", icon: PeopleIcon, to: "/students" },
+//     { id: 3, label: "Teachers", icon: SchoolIcon, to: "/teachers" },
+//     { id: 4, label: "Classes", icon: ClassIcon, to: "/classes" },
+//     { id: 5, label: "Settings", icon: SettingsIcon, to: "/settings" },
+
+// ]
 
 const navigationItems = [
-    { id: 1, label: "Dashboard", icon: DashboardIcon, to: "/dashboard" },
-    { id: 2, label: "Students", icon: PeopleIcon, to: "/students" },
-    { id: 3, label: "Teachers", icon: SchoolIcon, to: "/teachers" },
-    { id: 4, label: "Classes", icon: ClassIcon, to: "/classes" },
-    { id: 5, label: "Settings", icon: SettingsIcon, to: "/settings" },
+    { id: 1, label: 'Students', icon: PeopleIcon },
+    { id: 2, label: 'Fees', icon: CurrencyRupeeIcon },
+    { id: 3, label: 'Documents', icon: FolderIcon },
+    { id: 4, label: 'Time Table', icon: ScheduleIcon },
+    { id: 5, label: 'Notice', icon: WarningIcon },
+    { id: 6, label: 'Results', icon: LuFileSpreadsheet },
+    { id: 7, label: 'Assignments', icon: MdAssignment },
+    { id: 8, label: "Settings", icon: SettingsIcon },
 
 ]
 
